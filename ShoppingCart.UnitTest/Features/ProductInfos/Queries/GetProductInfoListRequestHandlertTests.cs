@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Moq;
+using ShoppingCart.Application.Contracts.Logging;
 using ShoppingCart.Application.Contracts.Persistence;
 using ShoppingCart.Application.DTOs.ProductInfo;
 using ShoppingCart.Application.Features.ProductInfos.Handlers.Queries;
@@ -14,6 +15,7 @@ namespace ShoppingCart.Application.UnitTest.Features.ProductInfos.Queries
     {
         private readonly Mock<IProductInfoRepository> _mockRepo;
         private readonly IMapper _mapper;
+        private readonly Mock<IAppLogger<GetProductInfoListRequestHandler>> _appLogger;
 
         public GetProductInfoListRequestHandlertTests()
         {
@@ -25,12 +27,14 @@ namespace ShoppingCart.Application.UnitTest.Features.ProductInfos.Queries
             });
 
             _mapper = mapperConfig.CreateMapper();
+
+            _appLogger = new Mock<IAppLogger<GetProductInfoListRequestHandler>>();
         }
 
         [Fact]
         public async Task GetProductInfoListTest()
         {
-            var handler = new GetProductInfoListRequestHandler(_mockRepo.Object, _mapper);
+            var handler = new GetProductInfoListRequestHandler(_mockRepo.Object, _mapper, _appLogger.Object);
 
             var result = await handler.Handle(new GetProductInfoListRequest(), CancellationToken.None);
 
