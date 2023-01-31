@@ -23,7 +23,7 @@ namespace ShoppingCart.Application.Features.ProductInfos.Handlers.Queries
         }
         public async Task<List<ProductInfoListDto>> Handle(GetProductInfoListRequest request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("logging started");
+            _logger.LogInformation("logging started testing");
             var productInfos = await _productInfoRepository.GetAll();
             _logger.LogInformation("product infos were retrieved succesfully.");
             return _mapper.Map<List<ProductInfoListDto>>(productInfos);
