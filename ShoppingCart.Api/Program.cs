@@ -1,4 +1,5 @@
 using ShoppingCart.Application;
+using ShoppingCart.Infrastructure;
 using ShoppingCart.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.ConfigurePersistenceService(builder.Configuration);
 builder.Services.ConfigureApplicationServices();
+builder.Services.ConfigureInfrastructureServices();
 
 var app = builder.Build();
 
