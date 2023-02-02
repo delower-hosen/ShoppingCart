@@ -39,7 +39,7 @@ namespace ShoppingCart.Application.UnitTest.Features.ProductInfos.Queries
             var result = await handler.Handle(new GetProductInfoListRequest(), CancellationToken.None);
 
             result.ShouldBeOfType<List<ProductInfoListDto>>();
-            result.Count.ShouldBe(2);
+            result.Count.ShouldBe(2); 
         }
     }
 }
