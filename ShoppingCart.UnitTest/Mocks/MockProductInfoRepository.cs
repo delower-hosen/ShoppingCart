@@ -1,11 +1,6 @@
 ﻿using Moq;
 using ShoppingCart.Application.Contracts.Persistence;
 using ShoppingCart.Domain.PrimaryEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShoppingCart.Application.UnitTest.Mocks
 {

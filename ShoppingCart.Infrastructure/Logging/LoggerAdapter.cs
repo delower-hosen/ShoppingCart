@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using ShoppingCart.Application.Contracts.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShoppingCart.Infrastructure.Logging
 {
@@ -22,7 +17,7 @@ namespace ShoppingCart.Infrastructure.Logging
 
         public void LogWarning(string message, params object[] args)
         {
-             _logger.LogWarning(message, args);
+            _logger.LogWarning(message, args);
         }
     }
 }
